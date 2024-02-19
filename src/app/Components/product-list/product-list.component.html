@@ -1,0 +1,25 @@
+
+<a routerLink="/ProductCategory/create" class="btn btn-info">Add New</a>
+<button class="btn btn-primary" (click)="LoadData()">Refresh</button>
+<hr />
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>            
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let products of ProductCategory">
+            <td>{{products.productCategoryID}}</td>
+            <td>{{products.name}}</td>
+            
+            <td class="btn-group">
+                <!-- <a [routerLink]="['/ProductCategory/',products.productCategoryID,'update']" class="btn btn-warning">Edit</a> -->
+                <a [routerLink]="['/ProductCategory/edit/', products.productCategoryID]" class="btn btn-warning">Edit</a>
+                <button class="btn btn-danger" (click)="DeleteProducts(products)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
